@@ -15,6 +15,7 @@ const submitHandler = (e)=>{
     .then(res=>{
       console.log(res.data.response);
       setResponse(res.data.response);
+      setQuestion('');
     })
     .catch(err=>{
       console.log(err)
@@ -33,7 +34,7 @@ const speakHandler = () =>{
           <img className='pic' alt='profile pic' src={require('../src/assets/0D5A7584.JPG')} />
         </div>
         <p className="label">Hiten Jain</p>
-        <textarea onChange={(e)=> {
+        <textarea value={question} onChange={(e)=> {
             setQuestion(e.target.value)
         }}/>
         <button onClick={submitHandler}>Send</button>
